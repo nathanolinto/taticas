@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  taticas:
+    container_name: taticas
+    build:
+      context: .
+      docusuariokerfile: ./Dockerfile
+      target: development
+    restart: unless-stopped
+    command: npm run dev
+    env_file: .env
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - 4587:4587
